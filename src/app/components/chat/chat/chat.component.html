@@ -1,0 +1,33 @@
+
+<div class="chat-window " [ngClass]="winStatus?'':'collapsed'">
+  <button class="open-button" ly-button raised appearance="fab"(click)="winStatus =true"raised bg="primary">
+    <ly-icon [withClass]="classes.icon" class="m-0">forum</ly-icon>
+  </button>
+  <div class="chat-body w-100 h-100  d-flex" >
+    <div class="chat-header d-flex">
+    <h3 class=" flex-grow-1">  <ly-icon [withClass]="classes.icon">forum</ly-icon>   Gloabl Chat</h3>
+    <button (click)="winStatus=false" ly-button appearance="icon" color="primary"><ly-icon>close</ly-icon></button>
+    </div>
+
+    <div class="chat" >
+      <ul class="chat-list" (change)="scroll()">
+        <li class="bubble d-flex" *ngFor="let item of items | async" [ngClass]="(isOwner().uid == item.user.id)?'sender':'receiver'" >
+          <img src="{{item.user.photoUrl}}"  alt="">
+          <div>
+            <small class="user" [ngClass]="(isOwner().uid == item.user.id)?'sender':'receiver'">
+              {{item.user.name}}</small>
+            <span class="chat-bubble" [ngClass]="(isOwner().uid == item.user.id)?'sender':'receiver'" >{{ item.message  }}</span>
+
+          </div>
+           </li>
+      </ul>
+    </div>
+    <div class="chat-footer d-flex">
+      <div class="form-group">
+        <input type="text" class="form-control " [formControl]='message' id="exampleInput" placeholder="type something . . . ">
+      </div>
+      <button ly-button bg="primary" (click)="sendMessage()" class="mx-1">send</button>
+    </div>
+  </div>
+
+</div>

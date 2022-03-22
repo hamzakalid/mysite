@@ -1,0 +1,127 @@
+[debug] [2022-03-22T08:37:08.437Z] ----------------------------------------------------------------------
+[debug] [2022-03-22T08:37:08.439Z] Command:       /usr/local/bin/node /home/hamza/.npm-global/bin/firebase serve
+[debug] [2022-03-22T08:37:08.440Z] CLI Version:   10.4.1
+[debug] [2022-03-22T08:37:08.440Z] Platform:      linux
+[debug] [2022-03-22T08:37:08.440Z] Node Version:  v16.14.0
+[debug] [2022-03-22T08:37:08.440Z] Time:          Tue Mar 22 2022 11:37:08 GMT+0300 (Arabian Standard Time)
+[debug] [2022-03-22T08:37:08.441Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-03-22T08:37:08.513Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-03-22T08:37:08.513Z] > authorizing via signed-in user (hkmsa727@gmail.com)
+[debug] [2022-03-22T08:37:08.514Z] [iam] checking project test-firebase-db-b2391 for permissions ["firebase.projects.get"]
+[debug] [2022-03-22T08:37:08.515Z] > refreshing access token with scopes: []
+[debug] [2022-03-22T08:37:08.516Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-03-22T08:37:32.990Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Tue, 22 Mar 2022 08:37:31 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-03-22T08:37:33.000Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/test-firebase-db-b2391:testIamPermissions [none]
+[debug] [2022-03-22T08:37:33.000Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/test-firebase-db-b2391:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-22T08:37:37.622Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/test-firebase-db-b2391:testIamPermissions 200
+[debug] [2022-03-22T08:37:37.623Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/test-firebase-db-b2391:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-03-22T08:37:37.628Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/test-firebase-db-b2391 [none]
+[debug] [2022-03-22T08:37:38.533Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/test-firebase-db-b2391 200
+[debug] [2022-03-22T08:37:38.534Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/test-firebase-db-b2391 {"projectId":"test-firebase-db-b2391","projectNumber":"957110827948","displayName":"test-firebase-db","name":"projects/test-firebase-db-b2391","resources":{"hostingSite":"test-firebase-db-b2391","realtimeDatabaseInstance":"test-firebase-db-b2391-default-rtdb","storageBucket":"test-firebase-db-b2391.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+[info] === Serving from '/home/hamza/development/Angular/posts-angular-firebase'...
+[info] 
+[debug] [2022-03-22T08:37:38.540Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/test-firebase-db-b2391/sites 
+[info] ✔  functions: Using node@16 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@16 from host."}}
+[debug] [2022-03-22T08:37:38.557Z] defaultcredentials: writing to file /home/hamza/.config/firebase/hkmsa727_gmail_com_application_default_credentials.json
+[debug] [2022-03-22T08:37:38.558Z] Setting GAC to /home/hamza/.config/firebase/hkmsa727_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /home/hamza/.config/firebase/hkmsa727_gmail_com_application_default_credentials.json"}}
+[debug] [2022-03-22T08:37:38.559Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/test-firebase-db-b2391/adminSdkConfig [none]
+[debug] [2022-03-22T08:37:42.525Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/test-firebase-db-b2391/adminSdkConfig 200
+[debug] [2022-03-22T08:37:42.526Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/test-firebase-db-b2391/adminSdkConfig {"projectId":"test-firebase-db-b2391","databaseURL":"https://test-firebase-db-b2391-default-rtdb.firebaseio.com","storageBucket":"test-firebase-db-b2391.appspot.com","locationId":"us-central"}
+[debug] [2022-03-22T08:37:48.353Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/test-firebase-db-b2391/sites 200
+[debug] [2022-03-22T08:37:48.354Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/test-firebase-db-b2391/sites {"sites":[{"name":"projects/957110827948/sites/test-firebase-db-b2391","defaultUrl":"https://test-firebase-db-b2391.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2022-03-22T08:37:48.355Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/test-firebase-db-b2391/webApps/-/config [none]
+[debug] [2022-03-22T08:37:49.412Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/test-firebase-db-b2391/webApps/-/config 200
+[debug] [2022-03-22T08:37:49.412Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/test-firebase-db-b2391/webApps/-/config {"projectId":"test-firebase-db-b2391","appId":"1:957110827948:web:2c9da7a9ff96262d26d809","databaseURL":"https://test-firebase-db-b2391-default-rtdb.firebaseio.com","storageBucket":"test-firebase-db-b2391.appspot.com","locationId":"us-central","apiKey":"AIzaSyBrTgNqcy0ufEevrR_AeFRYTBsbEisJzME","authDomain":"test-firebase-db-b2391.firebaseapp.com","messagingSenderId":"957110827948","measurementId":"G-J9SNP3ZVWC"}
+[info] i  functions: Watching "/home/hamza/development/Angular/posts-angular-firebase/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/home/hamza/development/Angular/posts-angular-firebase/functions\" for Cloud Functions..."}}
+[info] i  hosting: Serving hosting files from: dist/app/ {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mdist/app/\u001b[22m"}}
+[info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
+[debug] [2022-03-22T08:37:49.454Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2022-03-22T08:38:00.621Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2022-03-22T08:38:00.622Z] Building nodejs source
+[debug] [2022-03-22T08:38:00.622Z] Analyzing nodejs backend spec
+[info] ✔  functions[us-central1-app]: http function initialized (http://localhost:5001/test-firebase-db-b2391/us-central1/app). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://localhost:5001/test-firebase-db-b2391/us-central1/app)."}}
+[debug] [2022-03-22T08:38:41.302Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-03-22T08:38:41.303Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-03-22T08:38:41.303Z] Accepted request GET /test-firebase-db-b2391/us-central1/app/api/posts/?key=&page=1&page_size=10 --> us-central1-app
+[debug] [2022-03-22T08:38:41.318Z] [worker-pool] addWorker(us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-app)"}}
+[debug] [2022-03-22T08:38:41.319Z] [worker-pool] Adding worker with key us-central1-app, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-app, total=1"}}
+[debug] [2022-03-22T08:38:41.319Z] [worker-pool] submitWork(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-app)"}}
+[debug] [2022-03-22T08:38:41.320Z] [worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: Assigning socketPath: /tmp/fire_emu_39394.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: Assigning socketPath: /tmp/fire_emu_39394.sock"}}
+[debug] [2022-03-22T08:38:41.321Z] [worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: BUSY"}}
+[debug] [2022-03-22T08:38:42.583Z] [runtime-status] [39394] Functions runtime initialized. {"cwd":"/home/hamza/development/Angular/posts-angular-firebase/functions","node_version":"16.14.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Functions runtime initialized. {\"cwd\":\"/home/hamza/development/Angular/posts-angular-firebase/functions\",\"node_version\":\"16.14.0\"}"}}
+[debug] [2022-03-22T08:38:42.584Z] [runtime-status] [39394] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Disabled runtime features: undefined"}}
+[debug] [2022-03-22T08:38:42.587Z] [runtime-status] [39394] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.0.2","resolution":"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.0.2\",\"resolution\":\"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-03-22T08:38:42.589Z] [runtime-status] [39394] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.18.1","resolution":"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.18.1\",\"resolution\":\"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-03-22T08:38:42.591Z] [runtime-status] [39394] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2022-03-22T08:38:42.591Z] [runtime-status] [39394] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.18.1","resolution":"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.18.1\",\"resolution\":\"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-03-22T08:38:42.637Z] [runtime-status] [39394] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Checked functions.config() {\"config\":{}}"}}
+[debug] [2022-03-22T08:38:42.638Z] [runtime-status] [39394] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.18.1","resolution":"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.18.1\",\"resolution\":\"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2022-03-22T08:38:42.638Z] [runtime-status] [39394] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.18.1","resolution":"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.18.1\",\"resolution\":\"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-03-22T08:38:42.640Z] [runtime-status] [39394] Resolved module firebase-admin {"declared":true,"installed":true,"version":"10.0.2","resolution":"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"10.0.2\",\"resolution\":\"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2022-03-22T08:38:42.641Z] [runtime-status] [39394] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.18.1","resolution":"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.18.1\",\"resolution\":\"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2022-03-22T08:38:42.641Z] [runtime-status] [39394] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"10.0.2","resolution":"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"10.0.2\",\"resolution\":\"/home/hamza/development/Angular/posts-angular-firebase/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2022-03-22T08:38:42.741Z] [runtime-status] [39394] initializeApp(DEFAULT) {"apiKey":"AIzaSyBrTgNqcy0ufEevrR_AeFRYTBsbEisJzME","authDomain":"test-firebase-db-b2391.firebaseapp.com","projectId":"test-firebase-db-b2391","storageBucket":"test-firebase-db-b2391.appspot.com","messagingSenderId":"957110827948","appId":"1:957110827948:web:2c9da7a9ff96262d26d809"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] initializeApp(DEFAULT) {\"apiKey\":\"AIzaSyBrTgNqcy0ufEevrR_AeFRYTBsbEisJzME\",\"authDomain\":\"test-firebase-db-b2391.firebaseapp.com\",\"projectId\":\"test-firebase-db-b2391\",\"storageBucket\":\"test-firebase-db-b2391.appspot.com\",\"messagingSenderId\":\"957110827948\",\"appId\":\"1:957110827948:web:2c9da7a9ff96262d26d809\"}"}}
+[warn] ⚠  functions: The Cloud Firestore emulator is not running, so calls to Firestore will affect production. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"The Cloud Firestore emulator is not running, so calls to Firestore will affect production."}}
+[debug] [2022-03-22T08:38:42.778Z] [runtime-status] [39394] Beginning invocation function app! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Beginning invocation function app!"}}
+[info] i  functions: Beginning execution of "app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"app\""}}
+[debug] [2022-03-22T08:38:42.779Z] [runtime-status] [39394] Running app in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Running app in signature http"}}
+[debug] [2022-03-22T08:38:42.785Z] [runtime-status] [39394] Attempting to listen to socketPath: /tmp/fire_emu_39394.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Attempting to listen to socketPath: /tmp/fire_emu_39394.sock"}}
+[debug] [2022-03-22T08:38:42.791Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-03-22T08:38:42.792Z] [functions] Got req.url=/test-firebase-db-b2391/us-central1/app/api/posts/?key=&page=1&page_size=10, mapping to path=/api/posts/?key=&page=1&page_size=10 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/test-firebase-db-b2391/us-central1/app/api/posts/?key=&page=1&page_size=10, mapping to path=/api/posts/?key=&page=1&page_size=10"}}
+[debug] [2022-03-22T08:38:42.811Z] [runtime-status] [39394] Ephemeral server handling GET request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Ephemeral server handling GET request"}}
+[debug] [2022-03-22T08:38:42.834Z] [runtime-status] [39394] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Ephemeral server survived."}}
+[warn] ⚠  Google API requested!
+   - URL: "https://oauth2.googleapis.com/token"
+   - Be careful, this may be a production service. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Google API requested!\n   - URL: \"https://oauth2.googleapis.com/token\"\n   - Be careful, this may be a production service."}}
+[info] i  functions: Finished "app" in ~29s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"app\" in ~29s"}}
+[debug] [2022-03-22T08:39:11.856Z] [worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: IDLE"}}
+[debug] [2022-03-22T08:39:11.856Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-03-22T08:39:31.200Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2022-03-22T08:39:31.200Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2022-03-22T08:39:31.201Z] Accepted request GET /test-firebase-db-b2391/us-central1/app/api/posts/?key=&page=1&page_size=10 --> us-central1-app
+[debug] [2022-03-22T08:39:31.201Z] [worker-pool] submitWork(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=us-central1-app)"}}
+[debug] [2022-03-22T08:39:31.201Z] [worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: Assigning socketPath: /tmp/fire_emu_39394.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: Assigning socketPath: /tmp/fire_emu_39394.sock"}}
+[debug] [2022-03-22T08:39:31.201Z] [worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: BUSY"}}
+[debug] [2022-03-22T08:39:31.202Z] [runtime-status] [39394] Beginning invocation function app! {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Beginning invocation function app!"}}
+[info] i  functions: Beginning execution of "app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"app\""}}
+[debug] [2022-03-22T08:39:31.203Z] [runtime-status] [39394] Running app in signature http {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Running app in signature http"}}
+[debug] [2022-03-22T08:39:31.205Z] [runtime-status] [39394] Attempting to listen to socketPath: /tmp/fire_emu_39394.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Attempting to listen to socketPath: /tmp/fire_emu_39394.sock"}}
+[debug] [2022-03-22T08:39:31.207Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2022-03-22T08:39:31.208Z] [functions] Got req.url=/test-firebase-db-b2391/us-central1/app/api/posts/?key=&page=1&page_size=10, mapping to path=/api/posts/?key=&page=1&page_size=10 {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/test-firebase-db-b2391/us-central1/app/api/posts/?key=&page=1&page_size=10, mapping to path=/api/posts/?key=&page=1&page_size=10"}}
+[debug] [2022-03-22T08:39:31.216Z] [runtime-status] [39394] Ephemeral server handling GET request {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Ephemeral server handling GET request"}}
+[debug] [2022-03-22T08:39:31.217Z] [runtime-status] [39394] Ephemeral server survived. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [39394] Ephemeral server survived."}}
+[info] i  functions: Finished "app" in ~3s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"app\" in ~3s"}}
+[debug] [2022-03-22T08:39:35.189Z] [worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: IDLE"}}
+[debug] [2022-03-22T08:39:35.189Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2022-03-22T08:39:45.698Z] File /home/hamza/development/Angular/posts-angular-firebase/functions/routers/posts.router.js changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File /home/hamza/development/Angular/posts-angular-firebase/functions/routers/posts.router.js changed, reloading triggers"}}
+[debug] [2022-03-22T08:39:46.699Z] [worker-pool] Shutting down IDLE worker (us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-app)"}}
+[debug] [2022-03-22T08:39:46.699Z] [worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: FINISHING {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-app-0f898168-7ebd-4e11-8bdc-165144a9d29c]: FINISHING"}}

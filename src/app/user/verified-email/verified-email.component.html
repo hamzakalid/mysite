@@ -1,0 +1,17 @@
+<div class="pt-4" *ngIf="successStatue">
+  <h3 class="text-success text-center my-4">Done</h3>
+  <p class="text-center my-4">
+      Your email is verified successfully.
+  </p>
+  <button ly-button routerLink="/" bg="primary" class="mx-auto d-block">Go Home</button>
+</div>
+
+<div class="pt-4" *ngIf="!successStatue">
+  <h3 class="text-danger text-center my-4">Failed</h3>
+  <p class="text-center my-4">
+      Your email is not verified.
+
+    </p>
+    <a class="nav-link text-center" (click)="sendEmail()" [ngClass]="isAbleToSendEmailAgen?'':'disabled'" >I don't recive</a>
+
+</div>

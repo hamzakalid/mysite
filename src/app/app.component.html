@@ -1,0 +1,14 @@
+
+<!-- Start NavBar -->
+<div class="d-block bg-danger text-center text-light py-1" *ngIf="!network.online">
+  your are offline check your connection
+</div>
+<app-navbar></app-navbar>
+
+<!-- End NavBar -->
+<router-outlet></router-outlet>
+
+<!-- The router -->
+
+<app-chat>
+</app-chat>

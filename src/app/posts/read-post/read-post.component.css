@@ -1,0 +1,77 @@
+.card {
+  border-radius: 10px;
+}
+
+.card-header ,.card-footer{
+  display: flex;
+  background: #ffffff;
+  border-radius: 10px !important;
+  border: none;
+  flex-direction: row;
+}
+
+.card-header .space{
+  flex-grow: 1;
+}
+.replay-btn ly-icon {
+  transform: rotateY(180deg);
+}
+.comment-owner a{
+  cursor: pointer;
+}
+
+.popup-user {
+  position: absolute;
+  background: #eee;
+  width: 150px;
+  z-index: 99;
+  top: 30px;
+  left: -30px;
+  border-radius: 10px;
+  padding: 5px;
+  display: none;
+  box-shadow: 1px 2px 6px 0 #0000006e;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.user-name {
+  text-align: center;
+}
+.comment-owner:hover .popup-user {
+  display: block;
+}
+
+.popup-user::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #eee transparent;
+}
+
+.replay-on{
+  background-color: #f1f1f1;
+  border-left: solid 3px rgb(98 0 238);
+  display: block;
+  padding: 15px;
+  color: #6200ee;
+  max-height: 70px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

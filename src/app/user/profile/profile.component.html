@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="user-cover my-3">
+    <img src="https://api.lorem.space/image/car?w=1200&h=400&hash=pimarazj"
+    class=" w-100 h-auto"
+    alt="">
+
+    <span class="user-data">
+      <img src="{{user.photoUrl}}" alt="">
+      <h4 class="mt-2">{{user.name || 'Anonymous'}}</h4>
+      <span>{{user.email}}</span>
+    </span>
+  </div>
+  <div class="alert alert-warning py-4" *ngIf="!user.emailVerified" role="alert">
+    Your Account is not verificated <a href="">send me email</a>
+  </div>
+  <div class="alert alert-info py-4" *ngIf="!((user.email !='' || user.phone != '') && user.name != '')"  role="alert">
+    finsh your account informations <a href=""></a>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="row">
+        <div class="col-md-12 col-sm-6 my-1">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="pt-2">Edit Your Data</h5>
+            </div>
+            <div class="card-body">
+
+              <ly-field appearance="filled" [lyWidth]="1">
+                <ly-label>Your Name</ly-label>
+                <input lyNativeControl
+                  type="text"
+                >
+              </ly-field>
+              <ly-field appearance="filled" [lyWidth]="1">
+                <ly-label>Phone Number</ly-label>
+                <input lyNativeControl
+                  type="text"
+                >
+              </ly-field>
+              <ly-field appearance="filled" [lyWidth]="1">
+                <ly-label>Bio</ly-label>
+                <textarea lyNativeControl
+                  type="text"
+                ></textarea>
+              </ly-field>
+            </div>
+            <div class="card-footer">
+              <button ly-button bg="primary">Save</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-6 my-1">
+          <div class="card">
+            <div class="card-header">
+             Tags
+            </div>
+            <div class="card-body">
+                <button ly-button bg="primary" class="m-1" >#Laravel</button>
+                <button ly-button bg="primary" class="m-1" >#Css</button>
+                <button ly-button bg="primary" class="m-1" >#Angular</button>
+                <button ly-button bg="primary" class="m-1" >#TypeScript</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <ly-card style="margin:10px" *ngFor="let item of posts">
+        <ly-card-media style="height: 200px;"
+          bgImg="{{item.cover}}"
+          title="Blue Mountains"
+        ></ly-card-media>
+        <ly-card-content>
+          <h2 lyTyp="headline" ><a class="nav-link" [routerLink]="'/post/'+item.id">{{item.title}}</a></h2>
+          <p lyTyp="body1">
+            {{item.content}}
+          </p>
+        </ly-card-content>
+      <ly-card-actions >
+        <button ly-button  color="primary">
+          edit
+        </button>
+        <button ly-button color="warn">delete
+        </button>
+      </ly-card-actions>
+      </ly-card>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,74 @@
+.slider .items div{
+  padding: 24px;
+  background: #6300eed2;
+  border-radius: 10px;
+  color: #fff;
+  bottom: 0;
+}
+
+.slider .items img.img-left{
+  max-width: 400px;
+  bottom: 0;
+  right: 0;
+}
+.slider .items img.img-up{
+  max-width: 300px;
+  bottom: 0;
+  display: none;
+  bottom:115px;
+
+  right: 50%;
+  margin-right: -150px;
+}
+
+.slider{
+  height: 400px;
+}
+
+
+h2.welcome-msg {
+  position: absolute;
+  margin-top: 25px;
+  max-width: 200px;
+}
+h2.welcome-msg span{
+  font-size: 30px;
+  color: #6300ee;
+}
+.slider .items p{
+  max-width: 500px;
+}
+
+.items button.more-info{
+  font-size: 14px;
+}
+
+.experiences .row .Ex-card{
+  background: #fff;
+  padding-top:10px;
+  padding-bottom:10px;
+  border-radius: 10px;
+}
+.experiences .icon {
+  width: 100px;
+  height: auto;
+}
+.experiences .icon img{
+  width: 100%;
+  border-radius: 50%;
+}
+@media (max-width: 768px) {
+  .slider .items p{
+    max-width: 325px;
+    padding-top:10px ;
+    max-width: unset;
+  }
+  .slider .items img{
+    display: none
+  }
+  .slider .items img.img-up{
+    display: block;
+  }
+}
+
+

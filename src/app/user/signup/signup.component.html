@@ -1,0 +1,55 @@
+
+<div [withClass]="classes.container">
+  <div [withClass]="classes.form">
+    <h2 [withClass]="classes.textCenter">Creat You Account  </h2>
+
+
+
+    <form [formGroup]="profileForm"
+  (ngSubmit)="onSubmit()"
+  [className]=""
+  #profileNgForm="ngForm"
+>
+
+  <ly-field appearance="filled" [lyWidth]="1">
+    <ly-label>Email address</ly-label>
+    <input lyNativeControl
+      type="text"
+      formControlName="email"
+    >
+    <ly-hint>Hint</ly-hint>
+    <ly-error>Required</ly-error>
+  </ly-field>
+  <ly-field appearance="filled" [lyWidth]="1" [persistentHint]="true">
+    <input lyNativeControl
+      type="password"
+      formControlName="password"
+    >
+    <ly-label >Password</ly-label>
+    <ly-error *ngIf="profileForm.get('password')?.hasError('minlength')">Min 5 characters</ly-error>
+    <ly-error *ngIf="profileForm.get('password')?.hasError('maxlength')">Max 16 characters</ly-error>
+    <ly-error *ngIf="profileForm.get('password')?.hasError('required')">Required</ly-error>
+    <ly-hint [align]="'after'">{{ profileForm.get('password')?.value?.length || 0 }}/16</ly-hint>
+
+  </ly-field>
+
+
+  <button ly-button
+    [lyMf]="1"
+    bg="primary"
+    raised
+    lyWidth="100%"
+    type="submit"
+  >Submit</button>
+</form>
+
+<h3  style="margin:40px 0;text-align: center;">OR</h3>
+
+<div class="google-btn">
+  <div class="google-icon-wrapper">
+    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+  </div>
+  <p class="btn-text"><b>Sign in with google</b></p>
+</div>
+  </div>
+</div>

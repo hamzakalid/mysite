@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  padding-top:65px !important;
+  /* height: 100vh; */
+}
+.form-control:focus {
+  border-color: #6200ee !important;
+  box-shadow: 0 0 0 0.25rem rgba(99, 0, 238, 0.281) !important;
+}
+
+.alert{
+  border-radius: 10px !important;
+}

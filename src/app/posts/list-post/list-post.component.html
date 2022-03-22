@@ -1,0 +1,127 @@
+
+
+<div class="container pt-5">
+
+  <div class="row">
+
+    <div class="d-md-none d-sm-block mt-3">
+      <ly-card style="margin:0 10px;">
+        <ly-card-content>
+          <h2 lyTyp="headline" >Search</h2>
+          <p lyTyp="body1" >
+            Search for posts
+          </p>
+          <ly-field [lyWidth]="1" appearance="outlined" color="primary">
+            <ly-label style="background-color: #fff;" class="px-1">Search</ly-label>
+            <input #_input
+              lyNativeControl
+              placeholder="Search In Posts .... "
+              [formControl]="searchBox"
+              type="text"
+              maxlength="10"
+            >
+            <button ly-button
+              *ngIf="_input.value"
+              appearance="icon"
+              lySuffix
+              (click)="_input.value = ''"
+            >
+              <ly-icon>close</ly-icon>
+            </button>
+          </ly-field>
+        </ly-card-content>
+        <ly-card-actions>
+          <button ly-button color="primary" (click)="search()">
+            Search
+          </button>
+        </ly-card-actions>
+
+      </ly-card>
+    </div>
+    <div class="col-md-8">
+      <ly-card style="margin:10px" *ngFor="let item of posts" >
+        <ly-card-media style="height: 200px;"
+          bgImg="{{item.cover}}"
+          title="Blue Mountains"
+        ></ly-card-media>
+        <ly-card-content>
+          <h2 lyTyp="headline" ><a class="nav-link" [routerLink]="'/post/'+item.id">{{item.title}}</a></h2>
+          <p lyTyp="body1">
+            {{item.content}}
+          </p>
+        </ly-card-content>
+      <ly-card-actions >
+        <button ly-button  color="primary"
+        *ngIf="item.userId === authService.userState.uid"
+        >
+          edit
+        </button>
+        <button ly-button color="warn"
+        *ngIf="item.userId === authService.userState.uid"
+        (click)="postsService.deletePost(item.id)" >delete
+        </button>
+      </ly-card-actions>
+      </ly-card>
+
+
+      <button (click)="loadeMore()" *ngIf="!isLoading" ly-button outlined
+      style="margin: 10px; width: calc(100% - 20px); position: relative;">Load More Posts</button>
+        <ng-container *ngIf="isLoading" style="    border-radius: 10px;">
+          <ly-paper
+            [lyP]="'1em'"
+            [lyM]="'10px'"
+            [elevation]="2"
+          >
+            <span  style="height: 200px; width: 100%;" [lyTyp]="'img'" [lySkeleton]="true">{{ '\u00A0' }}</span>
+            <h3 [lyTyp]="'title'"
+              [lyWidth]=".35"
+              class="mt-3"
+              [lySkeleton]="true"
+            >{{ '\u00A0' }}</h3>
+            <p [lyTyp]="'body1'" class="mt-1"
+            [lySkeleton]="true">
+              {{ '\u00A0' }}
+            </p>
+          </ly-paper>
+        </ng-container>
+
+    </div>
+
+    <div class="col-md-4 d-none  d-sm-none d-md-block mt-3">
+      <ly-card>
+        <ly-card-content>
+          <h2 lyTyp="headline" >Search</h2>
+          <p lyTyp="body1" >
+            Search for posts
+          </p>
+          <ly-field [lyWidth]="1" appearance="outlined" color="primary">
+            <ly-label style="background-color: #fff;" class="px-1">Search</ly-label>
+            <input #_input
+              lyNativeControl
+              placeholder="Search In Posts .... "
+              [formControl]="searchBox"
+              type="text"
+              maxlength="10"
+            >
+            <button ly-button
+              *ngIf="_input.value"
+              appearance="icon"
+              lySuffix
+              (click)="_input.value = ''"
+            >
+              <ly-icon>close</ly-icon>
+            </button>
+          </ly-field>
+        </ly-card-content>
+        <ly-card-actions>
+          <button ly-button color="primary" (click)="search()">
+            Search
+          </button>
+        </ly-card-actions>
+
+      </ly-card>
+    </div>
+  </div>
+
+
+</div>

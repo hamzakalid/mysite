@@ -1,0 +1,20 @@
+.post-title
+,textarea{
+  background-color: transparent;
+  border:none ;
+}
+.post-title:focus,
+textarea:focus{
+  background-color: transparent;
+  box-shadow: 0 0 0 transparent;
+}
+
+.post-title{
+  font-size: 30px;
+}
+
+.cover{
+  width: 300px;
+  height: 100px;
+  border-radius: 10px;
+}

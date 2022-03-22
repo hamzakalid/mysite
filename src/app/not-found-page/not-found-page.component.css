@@ -1,0 +1,20 @@
+.squer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+span {
+  display: block;
+  color: #aaa8a8;
+}
+.squer span:first-of-type{
+  text-align:center;
+  font-size:80px;
+}
+
+.squer span:last-of-type{
+  text-align:center;
+  font-size: 20px;
+}

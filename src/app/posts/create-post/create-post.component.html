@@ -1,0 +1,27 @@
+
+<div class="container">
+  <form [formGroup]="postForm" (submit)="onSubmit()">
+  <input #_fileInput type="file"
+  (change)="openCropperDialog($event)" accept="image/*" hidden >
+
+<button ly-button color="primary" (click)="_fileInput.click()">
+  <ly-icon [lyMf]="1">image</ly-icon>
+  <span>Select File</span>
+</button>
+
+<div *ngIf="cropped"><img [src]="cropped" class="cover"></div>
+  <div class="form-group" >
+    <input dir="auto" type="text" class="form-control post-title"
+      formControlName="title"
+      placeholder="Post Title">
+  </div>
+  <div class="form-group mt-5">
+    <textarea [froalaEditor]
+    dir="auto" class="form-control"rows="4"
+    formControlName="content"
+     placeholder="What in your maind??"></textarea>
+  </div>
+  <button ly-button bg="primary" type="submit">Send Post</button>
+</form>
+</div>
+

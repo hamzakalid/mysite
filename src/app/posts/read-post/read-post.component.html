@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="cover">
+        <img [src]="post.data.cover" alt="" class="w-100 mt-3" style="border-radius: 8px;">
+      </div>
+      <div class="p-2">
+        <h1 dir="auto">{{post.data.title}}</h1>
+      </div>
+      <div class="cats">
+        <button ly-button class="mx-1" bg="primary">#Angular</button>
+        <button ly-button class="mx-1" bg="primary">#Firebase</button>
+        <button ly-button class="mx-1" bg="primary">#NodeJs</button>
+        <button ly-button class="mx-1" bg="primary">#Programming</button>
+      </div>
+    </div>
+    <div class="col-md-12 mt-4">
+      <div class="post-body" [froalaView]="post.data.content">
+
+      </div>
+      <hr>
+    </div>
+
+    <div class="col-md-12 mt-4 d-flex justify-content-center">
+      <div class="author mx-5 d-flex align-items-center ">
+
+        <ly-icon [withClass]="classes.icon">person</ly-icon>
+        <span>Hamza Khaled</span>
+      </div> |
+      <div class="comments mx-5 d-flex align-items-center">
+        <button ly-button >
+          <ly-icon [withClass]="classes.icon">comment</ly-icon> {{post.data.comments.length}}
+         </button>
+      </div> |
+      <div class="likes mx-5 d-flex align-items-center">
+       <button ly-button  (click)="onLike()" [color]="likeState?'primary':''" [disabled]="!likeBtnState">
+        <ly-icon [withClass]="classes.icon" >thumb_up</ly-icon> {{post.data.likes}}
+
+       </button>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group ">
+            <textarea id="my-textarea" class="form-control" [formControl]="comment" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button (click)="onComment()" ly-button bg="primary">Send
+            <ly-icon  [withClass]="classes.icon" class="mx-3" >send</ly-icon></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mt-4">
+      <div class="comments-list" >
+        <div class="comment-item my-2 d-flex align-items-center" *ngFor="let item of post.data.comments;let i=index">
+          <div class="card w-100">
+              <div class="card-header">
+                <div class="comment-owner">
+                  <a class="nav-link p-0 " [routerLink]="'/profile/'+item.user.id" >{{item.user.name || "Anonymous"}}</a>
+                  <div class="popup-user">
+                    <div class="user-avatar">
+                      <img src="{{item.user.photoUrl||'https://api.lorem.space/image/face?hash=653gp151'}}" alt="">
+                    </div>
+                    <div class="user-info">
+                      <div class="user-name">
+                        <a class="nav-link p-0 ">{{item.user.name || "Anonymous"}}</a>
+                        <span>{{item.email}}</span>
+                      </div>
+                      <div class="user-actions d-flex justify-content-center">
+                        <button ly-button appearance="icon" class="mx-1" color="primary">
+                          <ly-icon class="m-auto" [withClass]="classes.icon">person_add</ly-icon>
+                        </button>
+                        <button ly-button appearance="icon" class="mx-1" color="primary">
+                          <ly-icon class="m-auto" [withClass]="classes.icon">visibility</ly-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span class="space"></span>
+                <span>{{''}}</span>
+
+              </div>
+
+            <div class="card-body">
+
+              <div class="comment-body">
+               <span class="replay-on" *ngIf="replayOn(item.replayOn) != ''">
+                 <h6>{{replayOn(item.replayOn).user.name || "Anonymous"}}</h6>
+                 {{replayOn(item.replayOn).content}}
+               </span>
+                <p class="mt-2">
+                  {{item.content}}
+              </p>
+              </div>
+            </div>
+            <div class="replay mx-3 mb-2" *ngIf="+i == +replayIndex" >
+              <div class="form-group mb-2">
+                <textarea id="my-textarea" class="form-control" [formControl]="comment" rows="3"></textarea>
+              </div>
+
+              <button (click)="onCommentR(item.id)" ly-button bg="primary">Send
+                <ly-icon  [withClass]="classes.icon"  class="mx-3" >send</ly-icon>
+              </button>
+
+            </div>
+          </div>
+          <div class="p-1"></div>
+          <button ly-button appearance="icon" (click)="replay(item.id)" class="replay-btn overflow-hidden"><ly-icon >reply_outlined</ly-icon></button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

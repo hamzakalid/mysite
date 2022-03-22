@@ -1,0 +1,67 @@
+<ly-toolbar [withClass]="classes.nav" position="fixed" bg="primary" [elevation]="3">
+  <h2 lyTyp="title" [withClass]="classes.grow">Hamza Khaled</h2>
+  <div *ngIf="!isAuthentacted" class="pre-auth">
+    <a color="primary" routerLink="/login" ly-button>
+      LOGIN
+    </a>
+    <button color="primary" routerLink="/signup" ly-button>
+      SIGNIN
+    </button>
+  </div>
+  <div *ngIf="isAuthentacted" class="auth">
+     <button color="primary"  routerLinkActive="active" routerLink="/" ly-button>
+      HOME
+    </button>
+    <button color="primary"  routerLinkActive="active" routerLink="/posts"ly-button>
+      POSTS
+    </button>
+    <button color="primary"  routerLinkActive="active" routerLink="/create"ly-button>
+      NEW POST
+    </button>
+  </div>
+  <div *ngIf="isAuthentacted" class="user">
+
+    <ly-grid container justify="evenly">
+      <button
+        ly-button
+        appearance="icon"
+        [lyMenuTriggerFor]="menu"
+      >
+        <ly-avatar
+          [lySize]="32">
+          <img
+            alt="Larm Rmah"
+            src="{{ authService.userState.photoURL || 'https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2Flarm-rmah-47685-unsplash.jpeg?alt=media&token=1db05ae5-9c03-437b-9e8c-764dfb257061'}}">
+        </ly-avatar>
+      </button>
+    </ly-grid>
+
+    <ng-template #menu let-M>
+      <ly-menu [ref]="M" [lyWidth]="180" [withClass]="classes.textCenter">
+
+        <div  class="user" style="margin-bottom: 10px;">
+          <ly-avatar>
+            <img alt="Larm Rmah" src="{{ authService.userState.photoURL || 'https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2Flarm-rmah-47685-unsplash.jpeg?alt=media&token=1db05ae5-9c03-437b-9e8c-764dfb257061'}}">
+          </ly-avatar>
+          <h3 style="margin-bottom: 4px;">Hamza Khaled</h3>
+          <small>{{authService.userState.email}}</small>
+        </div>
+
+
+        <ly-divider></ly-divider>
+        <button  ly-button ly-menu-item >
+
+          <a [routerLink]="'/profile/'+ authService.userState.uid"> Profile</a>
+        </button>
+        <button ly-button ly-menu-item>
+          <span>my list</span>
+        </button>
+        <button (click)="authService.SignOut()" ly-button ly-menu-item>
+
+          <span>logout</span>
+        </button>
+      </ly-menu>
+    </ng-template>
+
+  </div>
+</ly-toolbar>

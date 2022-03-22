@@ -1,0 +1,212 @@
+.chat-window{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  max-width: 400px;
+  width: 100%;
+  max-height: 500px;
+  height: 100%;
+  border: 1px solid #fafafa;
+  background: #fff;
+  box-shadow: 2px 1px 4px 0px #00000063;
+  overflow: auto;
+  border-radius: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.start button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.chat-footer{
+  overflow: hidden;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  /* padding-bottom:10px; */
+  border-top: 1px solid #fff;
+  display: flex;
+  background: #fafafa;
+  justify-content: space-between;
+
+}
+.chat-footer input{
+  border:none;
+  padding:10px;
+  font-size:15px;
+  outline:none;
+  width:320px;
+}
+.chat-footer button{
+  width: 50px;
+}
+.chat-footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+}
+.chat-footer input:focus{
+  box-shadow: none !important;
+  border:none !important
+}
+
+
+.chat{
+  display: inline-block;
+  width: 100%;
+  margin-bottom:80px ;
+  margin-top:50px ;
+}
+
+
+.chat-header{
+  padding:10px;
+  border-bottom:1px solid #f1f1f1;
+  position: fixed;
+  max-width: 400px;
+  width: 100%;
+  background: #ffff;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 9999;
+}
+
+.chat-bubble.sender {
+  background: #f1f1f1;
+  color: #000;
+  float: right;
+  clear: both;
+}
+.chat-bubble {
+  float: right;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+.bubble .user{
+  margin-left: 8px;
+  font-size: 9px;
+  color: #555;
+}
+.chat-bubble.receiver {
+  background: rgb(30, 102, 238);
+  color: rgb(255, 255, 255);
+  float: left;
+  clear: both;
+}
+.bubble .user.sender{
+  float: right;
+}
+.bubble .user.receiver{
+  float: left;
+}
+.bubble{
+  word-wrap: break-word;
+  display: inline-grid;
+}
+
+.chat-list{
+  padding: 0;
+  margin: 0;
+  margin-bottom: 50px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.chat-list li{
+  padding:10px;
+  display: block;
+}
+.chat-list img {
+  height: 35px;
+  margin: 3px;
+  border-radius: 50%;
+  width: auto;
+}
+.chat-list .bubble.sender  {
+  float:right;
+  direction: rtl;
+}
+.bubble span.receiver,
+.bubble span.sender{
+  max-width: 250px
+}
+
+
+
+.users-list .image{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.users-list .image img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.users-list .user-info h4{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+}
+.users-list .user-info p{
+  margin: 0;
+  font-size: 10px;
+  font-weight: 400;
+  color: #000;
+}
+.users-list .header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  box-shadow: -2px -1px 7px 0 #33333370;
+  margin-bottom: 20px ;
+}
+
+.users-list .user-item{
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f1f1f1;
+  cursor: pointer;
+}
+
+
+
+.chat-window.collapsed {
+  height: 0px !important;
+  width: 0px !important;
+  overflow: unset !important;
+  background: transparent;
+  box-shadow: none;
+  border: none !important;
+}
+
+.chat-window.collapsed * {
+  display: none !important;
+}
+.chat-window button.open-button{
+  transition: all 0.5s ease-in-out;
+  display: none !important;
+}
+.chat-window.collapsed button.open-button * {
+  transition: all 0.5s ease-in-out;
+  display: block !important;
+}
+.chat-window.collapsed button.open-button  {
+  display: block !important;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+/* begin - fix for hidden scrollbar in IE/Edge/Firefox */
+
