@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CropperDialogComponent } from './cropper-dialog.component';
+import { CropperDialog } from './cropper-dialog.component';
 
-describe('CropperDialogComponent', () => {
-  let component: CropperDialogComponent;
-  let fixture: ComponentFixture<CropperDialogComponent>;
+describe('CropperDialog', () => {
+  let component: CropperDialog;
+  let fixture: ComponentFixture<CropperDialog>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CropperDialogComponent ]
+      declarations: [ CropperDialog ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CropperDialogComponent);
+    fixture = TestBed.createComponent(CropperDialog);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

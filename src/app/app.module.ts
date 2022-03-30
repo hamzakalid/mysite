@@ -55,6 +55,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { ProfileDialogComponent } from './components/profile-dialog/profile-dialog.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 firebase.initializeApp(environment.firebaseConfig);
 // AoT requires an exported function for factories
@@ -125,7 +126,13 @@ export function HttpLoaderFactory(http: HttpClient) {
           deps: [HttpClient]
       },
       defaultLanguage: 'en',
-  })
+  }),
+      ServiceWorkerModule.register('ngsw-worker.js', {
+        enabled: environment.production,
+        // Register the ServiceWorker as soon as the application is stable
+        // or after 30 seconds (whichever comes first).
+        registrationStrategy: 'registerWhenStable:30000'
+      })
 
 
   ],

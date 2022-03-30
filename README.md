@@ -1,6 +1,5 @@
 # My Blogest 
-
-
+this project is my own web site build with angular / nodeJs / firebases / mangodb
 ---
 ## api
 - get all posts 
