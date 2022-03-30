@@ -71,4 +71,8 @@ h2.welcome-msg span{
   }
 }
 
+.rtl .slider .items img.img-left{
+  left: 0 !important;
+  right: auto !important;
+}
 

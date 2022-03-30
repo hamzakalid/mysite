@@ -11,7 +11,9 @@ import {
   sendEmailVerification,
   applyActionCode,
   updateCurrentUser,
+  updateProfile,
  } from 'firebase/auth';
+import { getDownloadURL, getStorage, ref, uploadString } from 'firebase/storage';
 import { Subject } from 'rxjs';
 import { User } from './auth.module';
 
@@ -238,5 +240,66 @@ export class AuthService {
     }else{
       console.log("No user found");
     }
+  }
+
+  //this function to update the user Profile
+  updateUserProfile(user:any):any{
+    const auth = getAuth();
+    const userProfile = auth.currentUser;
+   if(userProfile){
+      updateProfile(userProfile,user).then(() => {
+        // Get the user profile
+        this.getUserProfile();
+        // update the local storage
+        localStorage.setItem('user', JSON.stringify(this.currentUser));
+        return true;
+      }).catch((error) => {
+        console.log(error);
+        return false;
+      });
+   }
+  }
+  //function to update the user photo
+  updateUserPhoto(photo:any):any{
+    console.log(photo);
+
+    const auth = getAuth();
+    const userProfile = auth.currentUser;
+    // save the photo to the storage
+    if(userProfile){
+      // upload the photo to the storage
+      const filePath = `/user/profile-${this.makeid(19)}.jpg`
+      const storage = getStorage();
+
+      var metadata = {
+        contentType: 'image/jpeg',
+      };
+
+      const storageRef = ref(storage,filePath);
+      const uploadTask = uploadString(storageRef,photo,'data_url',metadata).then((result)=>{
+        getDownloadURL(storageRef).then((url)=>{
+          const data ={
+            photoURL:url
+          }
+          updateProfile(userProfile,data).then(() => {
+            this.getUserProfile();
+            localStorage.setItem('user', JSON.stringify(this.currentUser));
+
+          }).catch((error) => {console.log(error);
+          })
+        });
+      })
+    }
+  }
+
+//Function to make rundom id
+  makeid(length:number):string {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
   }
 }

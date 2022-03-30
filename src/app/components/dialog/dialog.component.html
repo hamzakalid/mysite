@@ -1,0 +1,19 @@
+<h4 ly-dialog-title>What's your name?</h4>
+<div ly-dialog-content>
+  <input #_fileInput type="file" (change)="openCropperDialog($event)" accept="image/*" hidden>
+
+<button ly-button color="primary" (click)="_fileInput.click()">
+  <ly-icon [lyMf]="1">image</ly-icon>
+  <span>Select File</span>
+</button>
+
+<div *ngIf="cropped">
+  <span *ngIf="isLoading">Loading ... </span>
+  <img width="220px" style="border-radius: 50%;" [src]="cropped">
+</div>
+
+</div>
+<ly-grid container justify="end" ly-dialog-actions>
+  <button ly-button color="primary" (click)="dialogRef.close()">CANCEL</button>
+  <button ly-button color="primary" (click)="saveImage()">SAVE</button>
+</ly-grid>

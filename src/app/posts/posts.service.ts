@@ -6,7 +6,6 @@ import {getStorage, ref, uploadBytes} from "@angular/fire/storage"
 import { getDownloadURL, uploadString } from 'firebase/storage';
 import { Router } from '@angular/router';
 import { Comment } from './comment.module';
-import * as e from 'express';
 
 @Injectable({
   providedIn: 'root'

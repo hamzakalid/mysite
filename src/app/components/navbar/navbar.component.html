@@ -1,24 +1,37 @@
-<ly-toolbar [withClass]="classes.nav" position="fixed" bg="primary" [elevation]="3">
+<ly-toolbar [dir]="getCurrentLang()=='ar'?'rtl':'ltr'" [withClass]="classes.nav" position="fixed" bg="primary" [elevation]="3">
   <h2 lyTyp="title" [withClass]="classes.grow">Hamza Khaled</h2>
   <div *ngIf="!isAuthentacted" class="pre-auth">
     <a color="primary" routerLink="/login" ly-button>
-      LOGIN
+      {{'Navbar.Login' | translate }}
     </a>
     <button color="primary" routerLink="/signup" ly-button>
-      SIGNIN
+      {{"Navbar.Signup" | translate}}
     </button>
   </div>
   <div *ngIf="isAuthentacted" class="auth">
      <button color="primary"  routerLinkActive="active" routerLink="/" ly-button>
-      HOME
+      {{"Navbar.Home" | translate }}
     </button>
     <button color="primary"  routerLinkActive="active" routerLink="/posts"ly-button>
-      POSTS
+      {{"Navbar.Posts" | translate }}
+
     </button>
     <button color="primary"  routerLinkActive="active" routerLink="/create"ly-button>
-      NEW POST
+      {{"Navbar.CreateNew" | translate }}
     </button>
   </div>
+  <span class="form-inline">
+    <select dir="ltr"
+        class="form-control"
+        #selectedLang
+        (change)="switchLang(selectedLang.value)">
+      <option *ngFor="let language of translate.getLangs()"
+        [value]="language"
+        [selected]="language === translate.currentLang">
+        {{ language=== 'en' ? '🇺🇸 English' : '🇸🇦 العربية' }}
+      </option>
+    </select>
+  </span>
   <div *ngIf="isAuthentacted" class="user">
 
     <ly-grid container justify="evenly">
@@ -43,22 +56,22 @@
           <ly-avatar>
             <img alt="Larm Rmah" src="{{ authService.userState.photoURL || 'https://firebasestorage.googleapis.com/v0/b/alyle-ui.appspot.com/o/img%2Flarm-rmah-47685-unsplash.jpeg?alt=media&token=1db05ae5-9c03-437b-9e8c-764dfb257061'}}">
           </ly-avatar>
-          <h3 style="margin-bottom: 4px;">Hamza Khaled</h3>
+          <h3 style="margin-bottom: 4px;">{{authService.userState.displayName}}</h3>
           <small>{{authService.userState.email}}</small>
         </div>
 
 
         <ly-divider></ly-divider>
-        <button  ly-button ly-menu-item >
+        <button [dir]="getCurrentLang()=='ar'?'rtl':'ltr'"  ly-button ly-menu-item >
 
-          <a [routerLink]="'/profile/'+ authService.userState.uid"> Profile</a>
+          <a [routerLink]="'/profile/'+ authService.userState.uid" >{{"Navbar.Profile" | translate }}</a>
         </button>
-        <button ly-button ly-menu-item>
-          <span>my list</span>
+        <button [dir]="getCurrentLang()=='ar'?'rtl':'ltr'" ly-button ly-menu-item>
+          <span>{{"Navbar.MyList" | translate}}</span>
         </button>
-        <button (click)="authService.SignOut()" ly-button ly-menu-item>
+        <button [dir]="getCurrentLang()=='ar'?'rtl':'ltr'" (click)="authService.SignOut()" ly-button ly-menu-item>
 
-          <span>logout</span>
+          <span>{{"Navbar.Logout" | translate}}</span>
         </button>
       </ly-menu>
     </ng-template>

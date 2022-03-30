@@ -4,16 +4,22 @@
     class=" w-100 h-auto"
     alt="">
 
-    <span class="user-data">
-      <img src="{{user.photoUrl}}" alt="">
-      <h4 class="mt-2">{{user.name || 'Anonymous'}}</h4>
-      <span>{{user.email}}</span>
+    <span class="user-data text-center" >
+      <div class="image   p-0 m-auto text-center" [ngClass]="imageLoading?'loading':''">
+        <img src="{{authService.userState.photoURL}}" alt="">
+        <div class="over-img" (click)="open()">
+          <ly-icon ngClass="classes" *ngIf="!imageLoading" >edit</ly-icon>
+          <ly-icon ngClass="classes" *ngIf="imageLoading">cached</ly-icon>
+        </div>
+      </div>
+      <h4 class="mt-2">{{authService.userState.displayName || 'Anonymous'}}</h4>
+      <span>{{authService.userState.email}}</span>
     </span>
   </div>
-  <div class="alert alert-warning py-4" *ngIf="!user.emailVerified" role="alert">
+  <div class="alert alert-warning py-4" *ngIf="!authService.userState.emailVerified" role="alert">
     Your Account is not verificated <a href="">send me email</a>
   </div>
-  <div class="alert alert-info py-4" *ngIf="!((user.email !='' || user.phone != '') && user.name != '')"  role="alert">
+  <div class="alert alert-info py-4" *ngIf="!((authService.userState.email !='' || authService.userState.phoneNumber != '') && authService.userState.displayName != '')"  role="alert">
     finsh your account informations <a href=""></a>
   </div>
   <div class="row">
@@ -25,10 +31,11 @@
               <h5 class="pt-2">Edit Your Data</h5>
             </div>
             <div class="card-body">
-
+              <form [formGroup]="updateUserForm" (submit)="submit()">
               <ly-field appearance="filled" [lyWidth]="1">
                 <ly-label>Your Name</ly-label>
                 <input lyNativeControl
+                  formControlName="displayName"
                   type="text"
                 >
               </ly-field>
@@ -36,17 +43,18 @@
                 <ly-label>Phone Number</ly-label>
                 <input lyNativeControl
                   type="text"
+                  formControlName="phoneNumber"
                 >
               </ly-field>
               <ly-field appearance="filled" [lyWidth]="1">
                 <ly-label>Bio</ly-label>
                 <textarea lyNativeControl
                   type="text"
+                  formControlName="bio"
                 ></textarea>
               </ly-field>
-            </div>
-            <div class="card-footer">
-              <button ly-button bg="primary">Save</button>
+              <button type="submit" ly-button bg="primary">Save</button>
+            </form>
             </div>
           </div>
         </div>

@@ -1,0 +1,42 @@
+{
+
+  "Home": {
+    "Welcome": "Welcome"
+  },
+
+  "Navbar": {
+    "Home": "Home",
+    "Login": "Login",
+    "Signup": "Signup",
+    "Logout": "Logout",
+    "MyList": "My Posts",
+    "Profile": "Profile",
+    "Posts": "Posts",
+    "CreateNew": "Create New"
+  },
+
+  "Login": {
+    "Heading": "Login To Your Account",
+    "Email": "Email address",
+    "Required": "This Failed Is Required",
+    "Password": "Password",
+    "MinPassword": "Min 5 characters",
+    "MaxPassword": "Max 20 characters",
+    "Submit": "Login Now",
+    "OR": "OR",
+    "LoginWithGoogle": "Login in with google"
+  },
+
+  "Signup": {
+    "Heading": "Creat You Account",
+    "Email": "Email address",
+    "Required": "This Failed Is Required",
+    "Password": "Password",
+    "MinPassword": "Min 5 characters",
+    "MaxPassword": "Max 20 characters",
+    "Submit": "Singup Now",
+    "OR": "OR",
+    "SignupWithGoogle": "Sign up with google"
+  }
+
+}

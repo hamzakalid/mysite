@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { DatabaseModule } from "@angular/fire/database";
+import { HttpClientModule,HttpClient } from '@angular/common/http';
 
 import { LyToolbarModule } from '@alyle/ui/toolbar';
 import { LyIconModule } from '@alyle/ui/icon';
@@ -36,7 +37,6 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { ForgotPasswordComponent } from './user/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './user/verify-email/verify-email.component';
-import { HttpClientModule } from '@angular/common/http';
 import { VerifiedEmailComponent } from './user/verified-email/verified-email.component';
 import { HomeComponent } from './home/home.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
@@ -51,7 +51,16 @@ import { DatePipe } from '@angular/common';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { NotifyComponent } from './components/notify/notify.component';
 import { AuthGuardService } from './service/auth-guard.service';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { ProfileDialogComponent } from './components/profile-dialog/profile-dialog.component';
+
 firebase.initializeApp(environment.firebaseConfig);
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -72,6 +81,8 @@ firebase.initializeApp(environment.firebaseConfig);
     CropperDialog,
     ChatComponent,
     NotifyComponent,
+    DialogComponent,
+    ProfileDialogComponent,
   ],
   imports: [
 
@@ -101,10 +112,21 @@ firebase.initializeApp(environment.firebaseConfig);
     LyImageCropperModule,
     LySliderModule,
 
-
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
+
+
+    //translating
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      },
+      defaultLanguage: 'en',
+  })
+
 
   ],
   providers: [{ provide: HAMMER_GESTURE_CONFIG, useClass: LyHammerGestureConfig },

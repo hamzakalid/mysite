@@ -6,12 +6,6 @@ const admin = require("firebase-admin");
 const express = require("express");
 // const sotrage =require("firebase/storage");
 
-// const {MeiliSearch} = require("meilisearch");
-// const client = new MeiliSearch({
-//   host: "http://127.0.0.1:7700",
-//   apiKey: "masterKey",
-// });
-
 const db = admin.firestore();
 
 // eslint-disable-next-line new-cap
@@ -20,8 +14,7 @@ const router = express.Router();
 
 // This function is used to get all the posts
 router.get("", (req, res)=>{
-
-  const data =db.collection("posts").get();
+  const data = db.collection("posts").get();
   const posts = [];
 
   data.then((snapshot)=>{
@@ -30,12 +23,10 @@ router.get("", (req, res)=>{
       post.id = doc.id;
       posts.push(post);
     });
-
     res.json({
       message: "Posts fetched successfully",
       posts: posts,
     });
-
   });
 });
 

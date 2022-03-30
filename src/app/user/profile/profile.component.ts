@@ -1,8 +1,13 @@
 import { LyTheme2 } from '@alyle/ui';
+import { LyDialog, } from '@alyle/ui/dialog';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { DialogComponent } from 'src/app/components/dialog/dialog.component';
 import { PostsService } from 'src/app/posts/posts.service';
 import { AuthService } from '../auth.service';
+import { title } from 'process';
 const styles = ({
   icon: {
     marginAfter: '.5em'
@@ -14,41 +19,49 @@ const styles = ({
     fontSize: '72px'
   }
 });
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
+
 export class ProfileComponent implements OnInit {
   readonly classes = this._theme.addStyleSheet(styles);
-  currentUser: Subscription = new Subscription();
+  updateUserForm:FormGroup = new FormGroup({
+    displayName: new FormControl(),
+    phoneNumber: new FormControl(),
+    bio: new FormControl(),
+  });
 
-  user:any;
+  imageLoading = false;
+  photo:string="";
   posts:any;
-  constructor(private authService:AuthService,
+  constructor( public authService:AuthService,
             private _theme:LyTheme2,
-            private postsService:PostsService) {
+            private _dialog: LyDialog,
+            private postsService:PostsService,
+            private title: Title) {
+      this.title.setTitle(this.authService.userState.displayName);
+
 
   }
 
   ngOnInit(): void {
-    const currentUser = JSON.parse(localStorage.getItem('user')||'{}');
-    // console.log(currentUser);
 
-    if(currentUser){
+  }
 
-      this.user = {
-        name:currentUser.displayName || '',
-        email: currentUser.email || '',
-        photoUrl: currentUser.photoURL || 'https://api.lorem.space/image/face?w=150&h=150',
-        emailVerified: currentUser.emailVerified || '',
-        phoneNumber: currentUser.phoneNumber || '',
-      }
-    }
-    console.log(this.user);
+  submit(){
+    // update user profile
+    const user = this.authService.updateUserProfile(this.updateUserForm.value);
+  }
 
-    this.posts = this.postsService.getUserPosts();
 
+  open() {
+    const dialogRef = this._dialog.open<DialogComponent>(DialogComponent, {
+      width: 320
+    });
+    dialogRef.afterClosed.subscribe((result) => console.log(result));
   }
 
 }
